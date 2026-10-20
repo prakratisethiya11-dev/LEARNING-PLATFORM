@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Treasure - Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <h1>Study Treasure</h1>
+        <p class="subtitle">Welcome Back! Please Login</p>
+
+        <form id="loginForm">
+
+            <label for="role">Login As</label>
+            <select id="role" required>
+                <option value="">Select Category</option>
+                <option value="student">Student</option>
+                <option value="faculty">Faculty</option>
+                <option value="admin">Admin</option>
+            </select>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email"
+                   placeholder="Enter your email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password"
+                   placeholder="Enter your password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p class="register-text">
+            Not registered yet?
+            <a href="#" id="registerLink">Register Here</a>
+        </p>
+    </div>
+
+    <script>
+        const role = document.getElementById("role");
+
+        const registerPages = {
+            student: "student_register.html",
+            faculty: "faculty_register.html",
+            admin: "admin_register.html"
+        };
+
+        document.getElementById("registerLink").onclick = function(event) {
+            event.preventDefault();
+
+            if (role.value === "") {
+                alert("Please select your category first.");
+                return;
+            }
+
+            window.location.href = registerPages[role.value];
+        };
+
+        document.getElementById("loginForm").onsubmit = function(event) {
+            event.preventDefault();
+
+            alert("This is a demo login page. Database verification is not connected.");
+        };
+    </script>
+
+</body>
+</html>

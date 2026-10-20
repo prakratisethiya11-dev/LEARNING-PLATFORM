@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Treasure | Adaptive Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h2>Study Treasure</h2>
+    <nav><a href="/">Home</a></nav>
+</header>
+
+<main class="container">
+    <section class="card">
+        <h1>Adaptive Quiz</h1>
+        <p>Choose your class, subject and topic to begin.</p>
+
+        <form action="/start" method="POST">
+            <label for="class_level">Select Class</label>
+            <select name="class_level" id="class_level" required>
+                <option value="11">Class 11</option>
+                <option value="12">Class 12</option>
+            </select>
+
+            <label for="subject">Select Subject</label>
+            <select name="subject" id="subject" required>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Physics">Physics</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Science">Science (Physics + Chemistry)</option>
+            </select>
+
+            <label for="chapter">Select Topic</label>
+            <select name="chapter" id="chapter" required>
+                <option value="All Topics">All Topics</option>
+            </select>
+
+            <button type="submit">Start Quiz</button>
+        </form>
+    </section>
+</main>
+
+<script>
+const classSelect = document.getElementById("class_level");
+const subjectSelect = document.getElementById("subject");
+const chapterSelect = document.getElementById("chapter");
+
+const topics = {
+    "11": {
+        "Mathematics": ["Quadratic Equations", "Arithmetic Progressions"],
+        "Physics": ["Motion", "Work and Energy"],
+        "Chemistry": ["Mole Concept", "Chemical Bonding"]
+    },
+    "12": {
+        "Mathematics": ["Differentiation", "Matrices"],
+        "Physics": ["Current Electricity", "Electromagnetic Induction"],
+        "Chemistry": ["Chemical Kinetics", "Electrochemistry"]
+    }
+};
+
+function updateTopics() {
+    const selectedClass = classSelect.value;
+    const selectedSubject = subjectSelect.value;
+
+    chapterSelect.innerHTML = "";
+
+    const allOption = document.createElement("option");
+    allOption.value = "All Topics";
+    allOption.textContent = "All Topics";
+    chapterSelect.appendChild(allOption);
+
+    if (selectedSubject === "Science") {
+        return;
+    }
+
+    const selectedTopics = topics[selectedClass][selectedSubject];
+
+    selectedTopics.forEach(function(topic) {
+        const option = document.createElement("option");
+        option.value = topic;
+        option.textContent = topic;
+        chapterSelect.appendChild(option);
+    });
+}
+
+classSelect.addEventListener("change", updateTopics);
+subjectSelect.addEventListener("change", updateTopics);
+
+updateTopics();
+</script>
+
+</body>
+</html>

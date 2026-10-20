@@ -1,0 +1,101 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Times New Roman", Times, serif;
+}
+
+body {
+    background-image: url('Register.png'); /* Replace with your image file path or URL */
+    background-color: #edf0f5; /* Fallback color while image loads */
+    background-size: cover; /* Ensures the image scales to cover the full viewport */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+    background-attachment: fixed; /* Keeps background fixed while scrolling (optional) */
+    min-height: 100vh; /* Ensures body takes up the full screen height */
+
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    width: 90%;
+    max-width: 420px;
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #174a8b;
+    margin-bottom: 10px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin: 15px 0 7px;
+    color: #24364b;
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 15px;
+    background: white;
+    font-family: "Times New Roman", Times, serif;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #174a8b;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 24px;
+    background: #174a8b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: "Times New Roman", Times, serif;
+}
+
+button:hover {
+    background: #103765;
+}
+
+.register-text {
+    text-align: center;
+    margin-top: 22px;
+    color: #555;
+}
+
+.register-text a {
+    color: #174a8b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-text a:hover {
+    text-decoration: underline;
+}

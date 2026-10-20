@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Treasure | Result</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h2>Study Treasure</h2>
+</header>
+
+<main class="container">
+    <section class="card result-card">
+        <h1>Quiz Completed!</h1>
+
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+
+        <div class="score-circle">
+            <h2>{{ score }}/5</h2>
+            <p>Score</p>
+        </div>
+
+        <h2>{{ accuracy }}% Accuracy</h2>
+
+        {% if total == 5 %}
+            {% if accuracy >= 80 %}
+                <p class="result-message">Excellent work! You have performed very well.</p>
+            {% elif accuracy >= 60 %}
+                <p class="result-message">Good effort! Keep practising to improve.</p>
+            {% else %}
+                <p class="result-message">Keep learning! Practise more questions to improve.</p>
+            {% endif %}
+        {% else %}
+            <p class="result-message">
+                You answered {{ total }} question(s). More questions are needed
+                to complete a five-question quiz.
+            </p>
+        {% endif %}
+
+        <a class="button-link" href="/">Try Another Quiz</a>
+    </section>
+</main>
+
+</body>
+</html>
+
